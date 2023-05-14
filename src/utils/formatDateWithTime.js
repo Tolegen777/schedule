@@ -1,6 +1,6 @@
 import moment from "moment";
 
-export const formatDateWithTime = (date: Date | string | number | null, utcOn = true, format = 'HH:mm') => {
+export const formatDateWithTime = (date, utcOn = true, format = 'HH:mm') => {
     if (!date) {
         return undefined;
     }
