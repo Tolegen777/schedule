@@ -1,5 +1,5 @@
 export const defaultDays = {
-    Mon: 'Понидельник',
+    Mon: 'Понедельник',
     Tue: 'Вторник',
     Wed: 'Среда',
     Thu: 'Четверг',
