@@ -164,7 +164,7 @@ const ScheduleView = React.memo(({filterParams, isRoom, filterRoomsParams}) => {
                                     endTime={item?.endTime}
                                     subject={item?.subject?.title ?? ''}
                                     sessionType={item?.sessionType ?? ''}
-                                    group={item?.groups[0]?.title}
+                                    group={item?.groups}
                                     roomNumber={item?.room?.name ?? ''}
                                     itemIndex={item?.itemIndex}
                                     educationalProgram={item.groups[0]?.educationalProgramName}
