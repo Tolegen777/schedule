@@ -9,18 +9,22 @@ export const axiosInstance = axios.create({
 });
 
 axiosInstance.defaults.headers.common['Content-Type'] = 'application/json';
-
-
 axiosInstance.interceptors.response.use(
   ( response ) =>
     response, async ( error ) => {
-      console.log(error, 'RESponse')
-    if (error.response) {
+    if (error?.response) {
+      // debugger
       const errorMessage = error.response.data.message
-      // customNotification({
-      //   type: 'error',
-      //   message: errorMessage.length ? errorMessage : 'Ошибка сервера'
-      // })
+      if (errorMessage === 'Not authorized') {
+        localStorage.clear()
+        window.location.replace('/');
+      } else {
+        customNotification({
+          type: 'error',
+          message: errorMessage.length ? errorMessage : 'Ошибка сервера'
+        })
+      }
+
     }
 
     return Promise.reject(error)

@@ -1,10 +1,9 @@
-// import './App.css';
 import {ConfigProvider} from "antd";
 import {ToastContainer} from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import Schedule from "./pages/Schedule";
 import {useEffect} from "react";
-import {userService} from "./utils/userService";
+import {userService} from "./services/userService";
+import {AppRoutes} from "./routes/AppRoutes";
 
 
 function App() {
@@ -14,9 +13,12 @@ function App() {
         const url = window.location.href;
 
         // Extract the parameter value from the URL
-        const parameter = url.substring(url.lastIndexOf(':') + 1);
+        const segments = url.split('_');
+        const code = segments[1];
+        const id = segments[2];
+        console.log(segments, 'sss')
 
-        userService.updateLocal(parameter)
+        userService.updateLocal(code, id)
     }, []);
 
     return (
@@ -27,7 +29,7 @@ function App() {
                 },
             }}
         >
-            <Schedule/>
+            <AppRoutes/>
             <ToastContainer/>
         </ConfigProvider>
     );

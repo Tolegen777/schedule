@@ -69,9 +69,3 @@ export const BodyContainer = styled(Layout)`
   background-color: ${Colors.White};
 `;
 
-export const AsideContainer = styled(Layout)`
-  width: ${props => (props.collapsed === 'hide' ? '125px' : '270px')};
-  flex: 0;
-  height: calc(100vh - 100px);
-  background: ${Colors.White};
-`;

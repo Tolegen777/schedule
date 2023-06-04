@@ -1,26 +1,42 @@
 import React, {useState} from 'react';
-import ScheduleView from "../components/schedule/ScheduleView";
-import {ScheduleFilterForm} from "../components/schedule/ScheduleFilterForm";
+import {ScheduleFilterForm} from "../components/main/schedule/ScheduleFilterForm";
+import ScheduleView from "../components/main/schedule/ScheduleView";
 
 const Schedule = () => {
 
-    const [filterParams, setFilterParams] = useState('');
+    const [isRoom, setIsRoom] = useState(false)
+
+    const [filterParams, setFilterParams] = useState([]);
+
+    const [filterRoomsParams, setFilterRoomsParams] = useState([]);
 
     const onSubmitFilterModal = (formData) => {
-        Object.keys(formData).forEach(key => {
-            if (formData[key] === undefined) {
-                delete formData[key];
-            }
-        });
 
-        setFilterParams(new URLSearchParams(formData).toString());
+        if (isRoom) {
+            setFilterRoomsParams(formData?.roomId ?? '');
+        } else {
+            const payload = formData?.searchId?.map(item => {
+                return {
+                    searchId: item ?? '',
+                    searchType: formData?.searchType ?? ''
+                }
+            })
+            setFilterParams(payload)
+        }
+
     };
 
     return (
         <>
-            <ScheduleFilterForm onSubmit={(val) => onSubmitFilterModal(val)
-            }/>
-            <ScheduleView filterParams = {filterParams} />
+            <ScheduleFilterForm
+                onSubmit={(val) => onSubmitFilterModal(val)}
+                isRoom={isRoom}
+                setIsRoom={setIsRoom}
+            />
+            <ScheduleView
+                filterParams={filterParams}
+                filterRoomsParams={filterRoomsParams}
+                isRoom={isRoom}/>
         </>
     );
 };

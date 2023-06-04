@@ -1,11 +1,10 @@
 import { axiosInstance } from './index';
-import {userService} from "../utils/userService";
+import {userService} from "../services/userService";
 
 export const subjectApi = {
   getAlLApi: async (page = 1, size = 100, filter = '') => {
-    const code = userService.getLocal()
     const response = await axiosInstance.get(
-      `subjects/extended?pageCurrent=${page}&pageSize=${size}&pageTotal=0&universityCode=${code}&${filter}`
+      `subjects/extended?pageCurrent=${page}&pageSize=${size}&pageTotal=0&universityCode=${filter}`
     );
     return response.data;
   },
