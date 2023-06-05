@@ -237,22 +237,70 @@
     transform: translateY(12px);
 }
 
-.front3 {
-    position: absolute;
-    left: 0;
-    transform: translateY(20px);
-}
-
-.front3 {
-    position: absolute;
-    left: 0;
-    transform: translateY(28px);
-}
 
 .front3 {
     position: absolute;
     left: 0;
     transform: translateY(36px);
+    opacity: 0;
 }
+
+.front4 {
+    position: absolute;
+    left: 0;
+    z-index: 0;
+    opacity: 0;
+}
+.front5 {
+    position: absolute;
+    left: 0;
+    z-index: 0;
+    opacity: 0;
+}
+.front6 {
+    position: absolute;
+    left: 0;
+    z-index: 0;
+    opacity: 0;
+}
+.front7 {
+    position: absolute;
+    left: 0;
+    z-index: 0;
+    opacity: 0;
+}
+
+.front8 {
+    position: absolute;
+    left: 0;
+    transform: translateY(36px);
+    opacity: 0;
+}
+
+.front9 {
+    position: absolute;
+    left: 0;
+    z-index: 0;
+    opacity: 0;
+}
+.front10 {
+    position: absolute;
+    left: 0;
+    z-index: 0;
+    opacity: 0;
+}
+.front11 {
+    position: absolute;
+    left: 0;
+    z-index: 0;
+    opacity: 0;
+}
+.front12 {
+    position: absolute;
+    left: 0;
+    z-index: 0;
+    opacity: 0;
+}
+
 
 
