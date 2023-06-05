@@ -8,9 +8,11 @@ import {AppRoutes} from "./routes/AppRoutes";
 
 function App() {
 
+    const url = window.location.href;
+
     useEffect(() => {
         // Get the URL from window.location.href
-        const url = window.location.href;
+
 
         // Extract the parameter value from the URL
         const segments = url.split('_');
@@ -19,7 +21,7 @@ function App() {
         console.log(segments, 'sss')
 
         userService.updateLocal(code, id)
-    }, []);
+    }, [url?.length]);
 
     return (
         <ConfigProvider
